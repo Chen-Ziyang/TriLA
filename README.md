@@ -15,7 +15,7 @@ Pytorch 1.8.0
 * Clone this repo
 ```
 git clone https://github.com/Chen-Ziyang/TriLA.git
-cd TriLA-master
+cd TriLA/TriLA-master
 ```
 
 ### Data Preparation
