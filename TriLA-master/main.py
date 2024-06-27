@@ -10,7 +10,6 @@ import argparse
 
 from torch.utils.data import DataLoader
 from train_NoAdapt import TrainNoAdapt
-from train_TSD import TrainTSD
 from train_DA import TrainDA
 from test_DA import TestDA
 from dataloaders.RIGA_dataloader import RIGA_labeled_set, RIGA_unlabeled_set
@@ -166,11 +165,7 @@ def main(config):
                                      num_workers=1,
                                      collate_fn=collate_fn_wo_transform)
 
-        if config.mode == 'train_DA':
-            train = TrainDA(config, source_dataloader, target_train_dataloader, test_dataloader)
-        elif config.mode == 'train_TSD':
-            print('Loading Pre-trained Model: ' + str(config.load_time))
-            train = TrainTSD(config, source_dataloader, target_train_dataloader, test_dataloader)
+        train = TrainDA(config, source_dataloader, target_train_dataloader, test_dataloader)
         train.run()
 
     elif config.mode == 'NoAdapt':
@@ -263,7 +258,7 @@ def main(config):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', type=str, default='train_DA',
-                        help='train_DA/train_TSD/NoAdapt/IntraDomain/test/tsne')
+                        help='train_DA/NoAdapt/IntraDomain/test/tsne')
     parser.add_argument('--lossmap', type=str, default=['bce', 'dice'])
 
     parser.add_argument('--reload', type=int, default=None)
