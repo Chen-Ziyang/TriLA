@@ -1,8 +1,8 @@
-# :page_facing_up: Treasure in Distribution: A Domain Randomization based Multi-Source Domain Generalization for 2D Medical Image Segmentation (TriD)
-This is the official pytorch implementation of our MICCAI 2023 paper "[Treasure in Distribution: A Domain Randomization based Multi-Source Domain Generalization for 2D Medical Image Segmentation](https://arxiv.org/pdf/2305.19949.pdf)". In this paper, we propose a multi-source domain generalization method called Treasure in Distribution (TriD) to construct an unprecedented search space for feature-space domain randomization.
+# :page_facing_up: TriLA: Triple-Level Alignment based Unsupervised Domain Adaptation for Joint Segmentation of Optic Disc and Optic Cup
+This is the official pytorch implementation of our IEEE JBHI 2024 paper "[TriLA: Triple-Level Alignment based Unsupervised Domain Adaptation for Joint Segmentation of Optic Disc and Optic Cup](https://ieeexplore.ieee.org/abstract/document/10540208)". In this paper, we propose a triple-level alignment based unsupervised domain adaptation method (TriLA) to achieve complete domain alignment.
 
 <div align="center">
-  <img width="80%" alt="TriD illustration" src="figures/Overview.png">
+  <img width="90%" alt="TriLA illustration" src="figures/Overview.png">
 </div>
 
 ## Requirements
@@ -14,32 +14,21 @@ Pytorch 1.8.0
 ### Installation
 * Clone this repo
 ```
-git clone https://github.com/Chen-Ziyang/TriD.git
-cd TriD
+git clone https://github.com/Chen-Ziyang/TriLA.git
+cd TriLA/TriLA-master
 ```
 
 ### Data Preparation
-[OD/OC Segmentation](https://zenodo.org/record/8009107)<br />
-[Prostate Segmentation](https://liuquande.github.io/SAML/)
+[RIGA+ Dataset](https://zenodo.org/record/6325549)
 
-### OD/OC Segmentation
-We take the scenario using BinRushed (target domain) and other four datasets (source domains) as the example.
+### How to Run
+We take the scenario using BinRushed (source domain) and Base1 (target domain) as the example.
 ```
-cd OPTIC
 # Training
-CUDA_VISIBLE_DEVICES=0 python main.py --mode train_DG --mixstyle_layers layer1 layer2 --random_type TriD --Target_Dataset BinRushed --Source_Dataset Magrabia REFUGE ORIGA Drishti_GS
+CUDA_VISIBLE_DEVICES=0 python main.py --mode train_DA --dataset_root YOUR_ROOT --Target_Dataset Base1 --Source_Dataset BinRushed \
+--vae_coef 0.1 --output_coef 0.1 --style_coef 0.1 --content_coef 0.001
 # Test
-CUDA_VISIBLE_DEVICES=0 python main.py --mode single_test --load_time TIME_OF_MODEL --Target_Dataset BinRushed
-```
-
-### Prostate Segmentation
-We take the scenario using BMC (target domain) and other five datasets (source domains) as the example.
-```
-cd PROSTATE
-# Training
-CUDA_VISIBLE_DEVICES=0 python main.py --mode train_DG --mixstyle_layers layer1 layer2 --random_type TriD --Target_Dataset BMC --Source_Dataset BIDMC HK I2CVB RUNMC UCL
-# Test
-CUDA_VISIBLE_DEVICES=0 python main.py --mode single_test --load_time TIME_OF_MODEL --Target_Dataset BMC
+CUDA_VISIBLE_DEVICES=0 python main.py --mode test --reload EPOCH_OF_MODEL --load_time TIME_OF_MODEL --Target_Dataset BinRushed
 ```
 
 ### Acknowledgement
@@ -49,10 +38,11 @@ Part of the code is revised from the Pytorch implementation of [DoCR](https://gi
 
 If you find this repo useful for your research, please consider citing the paper as follows:
 ```
-@article{chen2023treasure,
-  title={Treasure in Distribution: A Domain Randomization based Multi-Source Domain Generalization for 2D Medical Image Segmentation},
-  author={Chen, Ziyang and Pan, Yongsheng and Ye, Yiwen and Cui, Hengfei and Xia, Yong},
-  booktitle={Medical Image Computing and Computer Assisted Intervention -- MICCAI 2023},
-  year={2023}
+@article{chen2024trila,
+  title={TriLA: Triple-Level Alignment based Unsupervised Domain Adaptation for Joint Segmentation of Optic Disc and Optic Cup},
+  author={Chen, Ziyang and Pan, Yongsheng and Ye, Yiwen and Wang, Zhiyong and Xia, Yong},
+  journal={IEEE Journal of Biomedical and Health Informatics},
+  year={2024},
+  publisher={IEEE}
 }
 ```
