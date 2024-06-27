@@ -261,8 +261,8 @@ if __name__ == '__main__':
                         help='train_DA/NoAdapt/IntraDomain/test/tsne')
     parser.add_argument('--lossmap', type=str, default=['bce', 'dice'])
 
-    parser.add_argument('--reload', type=int, default=None)
-    parser.add_argument('--load_time', type=str, default='20230210_214211')
+    parser.add_argument('--reload', type=int, default=100)
+    parser.add_argument('--load_time', type=str)
     parser.add_argument('--model_type', type=str, default='Res_Unet',
                         help='Deeplab_Mobile/Deeplab_Res/Res_Unet')  # choose the model
 
@@ -289,7 +289,7 @@ if __name__ == '__main__':
     parser.add_argument('--upbound', type=int, default=4)
     parser.add_argument('--lowbound', type=int, default=1)
 
-    parser.add_argument('--Source_Dataset', type=list, default=['BinRushed'], help='BinRushed/Magrabia')
+    parser.add_argument('--Source_Dataset', nargs='+', type=str, default=['BinRushed'], help='BinRushed/Magrabia')
     parser.add_argument('--Target_Dataset', type=str, default='Base1', help='Base1/Base2/Base3')
 
     parser.add_argument('--path_save_result', type=str, default='./results/')
