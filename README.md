@@ -15,20 +15,20 @@ Pytorch 1.8.0
 * Clone this repo
 ```
 git clone https://github.com/Chen-Ziyang/TriLA.git
-cd TriLA
+cd TriLA-master
 ```
 
 ### Data Preparation
 [RIGA+ Dataset](https://zenodo.org/record/6325549)
 
 ### How to Run
-We take the scenario using BinRushed (target domain) and other four datasets (source domains) as the example.
+We take the scenario using BinRushed (source domain) and Base1 (target domain) as the example.
 ```
-cd OPTIC
 # Training
-CUDA_VISIBLE_DEVICES=0 python main.py --mode train_DA --Target_Dataset Base1 --Source_Dataset BinRushed
+CUDA_VISIBLE_DEVICES=0 python main.py --mode train_DA --dataset_root YOUR_ROOT --Target_Dataset Base1 --Source_Dataset BinRushed \
+--vae_coef 0.1 --output_coef 0.1 --style_coef 0.1 --content_coef 0.001
 # Test
-CUDA_VISIBLE_DEVICES=0 python main.py --mode test --load_time TIME_OF_MODEL --Target_Dataset BinRushed
+CUDA_VISIBLE_DEVICES=0 python main.py --mode test --reload EPOCH_OF_MODEL --load_time TIME_OF_MODEL --Target_Dataset BinRushed
 ```
 
 ### Acknowledgement
