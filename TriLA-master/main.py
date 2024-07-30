@@ -258,7 +258,7 @@ def main(config):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', type=str, default='train_DA',
-                        help='train_DA/NoAdapt/IntraDomain/test/tsne')
+                        help='train_DA/NoAdapt/IntraDomain/test')
     parser.add_argument('--lossmap', type=str, default=['bce', 'dice'])
 
     parser.add_argument('--reload', type=int, default=100)
