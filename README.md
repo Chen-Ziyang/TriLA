@@ -1,4 +1,11 @@
 # :page_facing_up: TriLA: Triple-Level Alignment based Unsupervised Domain Adaptation for Joint Segmentation of Optic Disc and Optic Cup
+🍺🍺🍺Cheers! Our TriLA won the "Winner Finalist Award" on the task3 of [MICCAI FLARE 2024](https://www.codabench.org/competitions/2296/).
+<div align="center">
+  <img width="90%" alt="Certificate" src="figures/FLARE2024_Task3.JPG">
+</div>
+
+---
+
 This is the official pytorch implementation of our IEEE JBHI 2024 paper "[TriLA: Triple-Level Alignment based Unsupervised Domain Adaptation for Joint Segmentation of Optic Disc and Optic Cup](https://ieeexplore.ieee.org/abstract/document/10540208)". In this paper, we propose a triple-level alignment based unsupervised domain adaptation method (TriLA) to achieve complete domain alignment.
 
 <div align="center">
