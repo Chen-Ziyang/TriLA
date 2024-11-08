@@ -261,7 +261,7 @@ if __name__ == '__main__':
                         help='train_DA/NoAdapt/IntraDomain/test')
     parser.add_argument('--lossmap', type=str, default=['bce', 'dice'])
 
-    parser.add_argument('--reload', type=int, default=100)
+    parser.add_argument('--reload', type=int)
     parser.add_argument('--load_time', type=str)
     parser.add_argument('--model_type', type=str, default='Res_Unet',
                         help='Deeplab_Mobile/Deeplab_Res/Res_Unet')  # choose the model

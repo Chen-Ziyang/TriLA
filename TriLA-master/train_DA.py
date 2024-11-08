@@ -326,7 +326,7 @@ class TrainDA:
             try:
                 lfda_data = self.lfda.module.activate(self.lfda.module.fda_beta).data
             except:
-                lfda_data = self.lfda.module.activate(self.lfda.fda_beta).data
+                lfda_data = self.lfda.activate(self.lfda.fda_beta).data
             print("Train ———— Total_Loss:{:.8f}, Segconsis_Loss:{:.8f}, Content_Loss:{:.8f}, Style_Loss:{:.8f}, "
                   "VAE_Loss:{:.8f}, FDA_beta:{}".
                   format(loss_meter.value()[0], train_segconsis_loss, train_content_loss, train_style_loss,
