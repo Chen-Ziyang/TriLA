@@ -51,6 +51,9 @@ If you find this repo useful for your research, please consider citing the paper
   author={Chen, Ziyang and Pan, Yongsheng and Ye, Yiwen and Wang, Zhiyong and Xia, Yong},
   journal={IEEE Journal of Biomedical and Health Informatics},
   year={2024},
+  volume={28},
+  number={9},
+  pages={5497--5508},
   publisher={IEEE}
 }
 ```
